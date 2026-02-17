@@ -1,0 +1,53 @@
+# HOW TO RUN THE SIMULATION
+
+This guide provides instructions on how to run both the Backend (Flask) and Frontend (Next.js) in simulation mode.
+
+## 1. Backend Setup (BP-AI-FlaskX)
+
+Go to the `BP-AI-FlaskX` directory.
+
+1.  **Environment Variables**:
+    Ensure the `.env` file has the following flags set to `True`:
+    ```
+    FAKE_CONTEC=True
+    FAKE_TEMPERATURE=True
+    FAKE_BP=True
+    FAKE_FINGERPRINT=True
+    ```
+
+2.  **Install Dependencies**:
+    ```powershell
+    pip install -r requirements.txt
+    ```
+
+3.  **Start the Server**:
+    ```powershell
+    python app.py
+    ```
+    The backend will run on: http://127.0.0.1:5000
+
+---
+
+## 2. Frontend Setup (BP-AI-Website)
+
+Go to the `BP-AI-Website` directory.
+
+1.  **Install Dependencies**:
+    If you encounter security errors with `npm`, use `npm.cmd`:
+    ```powershell
+    npm.cmd install --legacy-peer-deps
+    ```
+
+2.  **Start the Dev Server**:
+    ```powershell
+    npm.cmd run dev
+    ```
+    The frontend will run on: http://localhost:3000 (or http://localhost:3001 if 3000 is busy).
+
+---
+
+## 3. Troubleshooting
+
+- **Security/Policy Errors**: If PowerShell blocks `npm`, always use `npm.cmd` instead.
+- **Port Busy**: If port 3000 is busy, Next.js will automatically try 3001. Check the terminal output for the correct URL.
+- **Mock Services**: You will see "WARNING: Using Mock..." in the backend console. This is expected and confirms simulation mode is active.
